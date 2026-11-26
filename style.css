@@ -93,7 +93,7 @@ figcaption { margin-top: 8px; color: var(--muted); text-align: right; font-size:
 .about-figure img { border-radius: 22px; width: 100%; height: auto; }
 h2 { font-size: clamp(2.7rem, 5vw, 4.65rem); line-height: 1.05; margin-block: 12px 20px; }
 .about p + p:not(.eyebrow) { margin-top: 13px; }
-footer { color: #fae9f9; background: #4f285f; }
+footer { color: #fae9f9; background: #4f285f; padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
 .footer-inner, .footer-brand { display: flex; align-items: center; gap: 16px; }
 .footer-inner { justify-content: space-between; padding-block: 29px; }
 .footer-brand img { width: 65px; height: 65px; border-radius: 12px; }
@@ -102,6 +102,33 @@ footer { color: #fae9f9; background: #4f285f; }
 .footer-brand p { margin-top: 5px; }
 footer a { white-space: nowrap; }
 footer a span { margin-left: 7px; }
+
+.whatsapp-link {
+  position: fixed;
+  z-index: 2;
+  left: calc(clamp(12px, 2.6vw, 32px) + env(safe-area-inset-left, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 10px 15px;
+  color: #fff;
+  background: var(--plum);
+  border: 1px solid var(--rose);
+  border-radius: 100px;
+  box-shadow: 0 4px 16px #3d204938;
+  font-size: .9rem;
+  font-weight: 700;
+}
+.whatsapp-link:hover { background: #733c86; }
+.whatsapp-icon {
+  width: 17px;
+  height: 16px;
+  border: 2px solid var(--rose);
+  border-radius: 8px 8px 8px 2px;
+  flex: none;
+}
 
 @media (max-width: 1000px) {
   .shell { width: calc(100% - 72px); }
