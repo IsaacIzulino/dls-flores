@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="catalogo.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -55,65 +56,65 @@
         <p>Escolha sua flor de chenille, por unidade ou em buquê.</p>
         <ul class="gallery-grid" aria-describedby="gallery-caption">
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=lirio" target="_blank" rel="noopener" aria-label="Ver mais sobre Lírio (abre em nova aba)">
+            <a class="gallery-card-link" href="#lírio" data-model="lirio" aria-label="Ver mais sobre Lírio">
               <img src="assets/flores/lirio.jpg" width="720" height="720" alt="Lírio rosa de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Lírio</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=gerbera" target="_blank" rel="noopener" aria-label="Ver mais sobre Gérbera (abre em nova aba)">
+            <a class="gallery-card-link" href="#gérbera" data-model="gerbera" aria-label="Ver mais sobre Gérbera">
               <img src="assets/flores/gerbera.jpg" width="720" height="720" alt="Gérbera rosa de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Gérbera</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=tulipa" target="_blank" rel="noopener" aria-label="Ver mais sobre Tulipa (abre em nova aba)">
+            <a class="gallery-card-link" href="#tulipa" data-model="tulipa" aria-label="Ver mais sobre Tulipa">
               <img src="assets/flores/tulipa.jpg" width="720" height="720" alt="Tulipa rosa de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Tulipa</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=lavanda" target="_blank" rel="noopener" aria-label="Ver mais sobre Lavanda (abre em nova aba)">
+            <a class="gallery-card-link" href="#lavanda" data-model="lavanda" aria-label="Ver mais sobre Lavanda">
               <img src="assets/flores/lavanda.jpg" width="720" height="720" alt="Ramo de lavanda roxa de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Lavanda</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=rosa" target="_blank" rel="noopener" aria-label="Ver mais sobre Rosa (abre em nova aba)">
+            <a class="gallery-card-link" href="#rosa" data-model="rosa" aria-label="Ver mais sobre Rosa">
               <img src="assets/flores/rosa.jpg" width="720" height="720" alt="Rosa em tom rosa de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Rosa</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=margarida-grande" target="_blank" rel="noopener" aria-label="Ver mais sobre Margarida grande (abre em nova aba)">
+            <a class="gallery-card-link" href="#margarida-grande" data-model="margarida-grande" aria-label="Ver mais sobre Margarida grande">
               <img src="assets/flores/margarida-grande.jpg" width="720" height="720" alt="Margarida grande branca de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Margarida grande</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
           <li class="gallery-card">
-            <a class="gallery-card-link" href="flor.html?modelo=margarida-pequena" target="_blank" rel="noopener" aria-label="Ver mais sobre Margarida pequena (abre em nova aba)">
+            <a class="gallery-card-link" href="#margarida-pequena" data-model="margarida-pequena" aria-label="Ver mais sobre Margarida pequena">
               <img src="assets/flores/margarida-pequena.jpg" width="720" height="720" alt="Margarida pequena branca de chenille" loading="lazy" decoding="async">
               <div class="gallery-card-content">
                 <h3>Margarida pequena</h3>
-                <span class="gallery-button">Ver mais <span aria-hidden="true">↗</span></span>
+                <span class="gallery-button">Ver mais <span aria-hidden="true">→</span></span>
               </div>
             </a>
           </li>
@@ -134,6 +135,42 @@
           <p>Com seu toque aveludado, o chenille ganha forma nas mãos. Pétalas, folhas e miolos são moldados um a um antes de se encontrarem no buquê.</p>
           <p>Cores e texturas se combinam em arranjos para presentear, celebrar uma data especial ou trazer um toque de cor para casa.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="shell product-main" aria-labelledby="product-title" hidden>
+      <a class="product-back" href="#buques"><span aria-hidden="true">←</span> Voltar ao catálogo</a>
+      <div class="product-layout">
+        <figure class="product-figure">
+          <img id="product-image" width="720" height="720" fetchpriority="high" alt="">
+          <figcaption>Imagem ilustrativa</figcaption>
+        </figure>
+        <section class="product-details" aria-labelledby="product-title">
+          <p class="eyebrow"><span aria-hidden="true"></span> Flor artesanal de chenille</p>
+          <h1 id="product-title" tabindex="-1"></h1>
+          <form class="product-form" action="https://wa.me/554498405677" target="_blank" rel="noopener noreferrer">
+            <fieldset>
+              <legend>Escolha uma opção</legend>
+              <label class="product-option">
+                <input type="radio" name="formato" value="1 unidade" required>
+                <span>1 unidade</span>
+                <strong data-price></strong>
+              </label>
+              <label class="product-option">
+                <input type="radio" name="formato" value="buquê com 3">
+                <span>Buquê com 3</span>
+                <strong data-price></strong>
+              </label>
+              <label class="product-option">
+                <input type="radio" name="formato" value="buquê com 5">
+                <span>Buquê com 5</span>
+                <strong data-price></strong>
+              </label>
+            </fieldset>
+            <button class="action product-send" type="submit">Enviar mensagem <span aria-hidden="true">↗</span></button>
+            <p class="product-note">Abre o WhatsApp com a mensagem pronta.</p>
+          </form>
+        </section>
       </div>
     </section>
   </main>
