@@ -1,35 +1,36 @@
-const gallery = document.querySelector(".gallery-grid");
-const dialog = document.querySelector(".product-dialog");
-const form = dialog.querySelector(".product-form");
-const title = dialog.querySelector("#product-title");
-const priceLabels = dialog.querySelectorAll("[data-price]");
-const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+const flowers = new Map([
+  ["lirio", { name: "Lírio", alt: "Lírio rosa de chenille", interest: "no lírio", prices: [15, 45, 70] }],
+  ["gerbera", { name: "Gérbera", alt: "Gérbera rosa de chenille", interest: "na gérbera", prices: [13, 39, 60] }],
+  ["tulipa", { name: "Tulipa", alt: "Tulipa rosa de chenille", interest: "na tulipa", prices: [14, 42, 67] }],
+  ["lavanda", { name: "Lavanda", alt: "Ramo de lavanda roxa de chenille", interest: "na lavanda", prices: [8, 24, 38] }],
+  ["rosa", { name: "Rosa", alt: "Rosa em tom rosa de chenille", interest: "na rosa", prices: [19, 57, 90] }],
+  ["margarida-grande", { name: "Margarida grande", alt: "Margarida grande branca de chenille", interest: "na margarida grande", prices: [11, 33, 52] }],
+  ["margarida-pequena", { name: "Margarida pequena", alt: "Margarida pequena branca de chenille", interest: "na margarida pequena", prices: [10, 30, 47] }],
+]);
 
-const whatsapp = new URL(document.querySelector(".whatsapp-link").href);
-whatsapp.search = "";
-form.action = whatsapp.href;
+const slug = new URLSearchParams(window.location.search).get("modelo");
+const flower = flowers.get(slug);
 
-let selectedFlower;
+if (!flower) {
+  document.querySelector(".product-empty").hidden = false;
+} else {
+  const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
+  const image = document.querySelector("#product-image");
+  const form = document.querySelector(".product-form");
 
-gallery.addEventListener("click", (event) => {
-  const button = event.target.closest(".gallery-button");
-  if (!button) return;
-
-  const prices = button.dataset.prices.split(" ").map(Number);
-  selectedFlower = button.dataset.flower;
-  title.textContent = button.closest(".gallery-card").querySelector("h3").textContent;
-  priceLabels.forEach((label, index) => {
-    label.textContent = currency.format(prices[index]);
+  document.title = `${flower.name} de chenille | DLS Flores`;
+  document.querySelector("#product-title").textContent = flower.name;
+  image.alt = flower.alt;
+  image.src = `assets/flores/${slug}.jpg`;
+  form.querySelectorAll("[data-price]").forEach((label, index) => {
+    label.textContent = currency.format(flower.prices[index]);
   });
 
-  form.reset();
-  dialog.showModal();
-});
+  form.addEventListener("formdata", (event) => {
+    const format = event.formData.get("formato");
+    event.formData.delete("formato");
+    event.formData.set("text", `Olá, DLS Flores! Vim pelo site e tenho interesse ${flower.interest} (${format}).`);
+  });
 
-dialog.querySelector(".dialog-close").addEventListener("click", () => dialog.close());
-
-form.addEventListener("formdata", (event) => {
-  const format = event.formData.get("formato");
-  event.formData.delete("formato");
-  event.formData.set("text", `Olá, DLS Flores! Vim pelo site e tenho interesse ${selectedFlower} (${format}).`);
-});
+  document.querySelector(".product-layout").hidden = false;
+}

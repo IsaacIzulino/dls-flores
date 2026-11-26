@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f0fa">
+  <title>Flor de chenille | DLS Flores</title>
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="catalogo.js" defer></script>
+</head>
+<body class="product-page">
+  <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html" aria-label="DLS Flores, início">
+        <span class="flower brand-flower" aria-hidden="true"></span>
+        <span>dlsflores</span>
+      </a>
+      <nav aria-label="Navegação principal">
+        <a class="nav-action" href="index.html#buques"><span aria-hidden="true">←</span> Voltar ao catálogo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell product-main" id="conteudo">
+    <div class="product-layout" hidden>
+      <figure class="product-figure">
+        <img id="product-image" width="720" height="720" fetchpriority="high" alt="">
+        <figcaption>Imagem ilustrativa</figcaption>
+      </figure>
+      <section class="product-details" aria-labelledby="product-title">
+        <p class="eyebrow"><span aria-hidden="true"></span> Flor artesanal de chenille</p>
+        <h1 id="product-title"></h1>
+        <form class="product-form" action="https://wa.me/554498405677" target="_blank" rel="noopener noreferrer">
+          <fieldset>
+            <legend>Escolha uma opção</legend>
+            <label class="product-option">
+              <input type="radio" name="formato" value="1 unidade" required>
+              <span>1 unidade</span>
+              <strong data-price></strong>
+            </label>
+            <label class="product-option">
+              <input type="radio" name="formato" value="buquê com 3">
+              <span>Buquê com 3</span>
+              <strong data-price></strong>
+            </label>
+            <label class="product-option">
+              <input type="radio" name="formato" value="buquê com 5">
+              <span>Buquê com 5</span>
+              <strong data-price></strong>
+            </label>
+          </fieldset>
+          <button class="action product-send" type="submit">Enviar mensagem <span aria-hidden="true">↗</span></button>
+          <p class="product-note">Abre o WhatsApp com a mensagem pronta.</p>
+        </form>
+      </section>
+    </div>
+    <div class="product-empty" hidden>
+      <h1>Flor não encontrada</h1>
+      <a class="action" href="index.html#buques">Ver catálogo</a>
+    </div>
+    <noscript>
+      <p>Ative o JavaScript para conferir as opções desta flor.</p>
+    </noscript>
+  </main>
+</body>
+</html>
