@@ -1,0 +1,81 @@
+{
+  "flowers": [
+    {
+      "name": "Lírio",
+      "slug": "lírio",
+      "image": "/assets/flores/lirio.jpg",
+      "alt": "Lírio rosa de chenille",
+      "illustrative": true,
+      "single": 15,
+      "trio": 45,
+      "quintet": 70,
+      "interest": "no lírio"
+    },
+    {
+      "name": "Gérbera",
+      "slug": "gérbera",
+      "image": "/assets/flores/gerbera.jpg",
+      "alt": "Gérbera rosa de chenille",
+      "illustrative": true,
+      "single": 13,
+      "trio": 39,
+      "quintet": 60,
+      "interest": "na gérbera"
+    },
+    {
+      "name": "Tulipa",
+      "slug": "tulipa",
+      "image": "/assets/flores/tulipa.jpg",
+      "alt": "Tulipa rosa de chenille",
+      "illustrative": true,
+      "single": 14,
+      "trio": 42,
+      "quintet": 67,
+      "interest": "na tulipa"
+    },
+    {
+      "name": "Lavanda",
+      "slug": "lavanda",
+      "image": "/assets/flores/lavanda.jpg",
+      "alt": "Ramo de lavanda roxa de chenille",
+      "illustrative": true,
+      "single": 8,
+      "trio": 24,
+      "quintet": 38,
+      "interest": "na lavanda"
+    },
+    {
+      "name": "Rosa",
+      "slug": "rosa",
+      "image": "/assets/flores/rosa.jpg",
+      "alt": "Rosa em tom rosa de chenille",
+      "illustrative": true,
+      "single": 19,
+      "trio": 57,
+      "quintet": 90,
+      "interest": "na rosa"
+    },
+    {
+      "name": "Margarida grande",
+      "slug": "margarida-grande",
+      "image": "/assets/flores/margarida-grande.jpg",
+      "alt": "Margarida grande branca de chenille",
+      "illustrative": true,
+      "single": 11,
+      "trio": 33,
+      "quintet": 52,
+      "interest": "na margarida grande"
+    },
+    {
+      "name": "Margarida pequena",
+      "slug": "margarida-pequena",
+      "image": "/assets/flores/margarida-pequena.jpg",
+      "alt": "Margarida pequena branca de chenille",
+      "illustrative": true,
+      "single": 10,
+      "trio": 30,
+      "quintet": 47,
+      "interest": "na margarida pequena"
+    }
+  ]
+}

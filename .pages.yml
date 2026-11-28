@@ -1,0 +1,65 @@
+media:
+  input: assets/flores
+  output: /assets/flores
+  rename: safe
+  extensions: [jpg, jpeg, png, webp, avif]
+
+content:
+  - name: catalogo
+    label: Catálogo de flores
+    type: file
+    path: flores.json
+    format: json
+    fields:
+      - name: flowers
+        label: Flores
+        type: object
+        required: true
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Nome da flor
+            type: string
+            required: true
+          - name: image
+            label: Foto
+            type: image
+            required: true
+          - name: alt
+            label: Descrição da foto
+            type: string
+            description: Descreva brevemente a flor e sua cor.
+          - name: illustrative
+            label: Foto ilustrativa
+            type: boolean
+            default: false
+          - name: single
+            label: Preço de 1 unidade em reais
+            type: number
+            required: true
+            options:
+              min: 0
+          - name: trio
+            label: Preço do buquê com 3 em reais
+            type: number
+            required: true
+            options:
+              min: 0
+          - name: quintet
+            label: Preço do buquê com 5 em reais
+            type: number
+            required: true
+            options:
+              min: 0
+          - name: slug
+            label: Endereço da flor no site
+            type: string
+            description: Nas novas flores, deixe em branco para gerar o endereço pelo nome. Nos cards existentes, mantenha o endereço para preservar os links.
+          - name: interest
+            label: Texto para o WhatsApp
+            type: string
+            description: Opcional. Completa a frase "Vim pelo site e tenho interesse ...". Exemplo — no lírio. Em branco, o site usa o nome da flor.

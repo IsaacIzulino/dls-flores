@@ -92,6 +92,7 @@ figcaption { margin-top: 8px; color: var(--muted); text-align: right; font-size:
   text-align: left;
 }
 .gallery-card-link {
+  position: relative;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -137,7 +138,18 @@ figcaption { margin-top: 8px; color: var(--muted); text-align: right; font-size:
 .gallery-button .arrow-icon { margin-left: 4px; }
 .gallery-card-link:hover .gallery-button,
 .gallery-card-link:focus-visible .gallery-button { background: #f1e2f3; }
-.gallery .gallery-caption { margin-top: 12px; text-align: right; font-size: .75rem; }
+.gallery-photo-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: auto;
+  max-width: calc(100% - 16px);
+  padding: 4px 8px;
+  border-radius: 100px;
+  color: var(--ink);
+  background: #fffbfff2;
+  font-size: .66rem;
+}
 
 .product-main { padding-block: clamp(24px, 5vw, 72px); }
 .product-back {
