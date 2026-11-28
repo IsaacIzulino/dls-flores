@@ -1,48 +1,16 @@
 import { cpSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { readCatalog } from "./catalog-data.mjs";
 
 const path = (file) => fileURLToPath(new URL(file, import.meta.url));
 const template = readFileSync(path("index.html"), "utf8");
 const { flowers } = JSON.parse(readFileSync(path("flores.json"), "utf8"));
-const addresses = new Set(["inicio", "conteudo", "buques", "sobre"]);
-
-if (!Array.isArray(flowers) || flowers.length === 0) {
-  throw new Error("O catálogo precisa de pelo menos uma flor.");
+const catalog = readCatalog(flowers);
+for (const flower of catalog) {
+  if (!statSync(path(flower.image.slice(1)), { throwIfNoEntry: false })?.isFile()) {
+    throw new Error(`${flower.name}: a foto selecionada não está no repositório.`);
+  }
 }
-
-const catalog = flowers.map((entry, index) => {
-  const name = entry.name?.trim();
-  const address = entry.slug?.trim() || name?.toLowerCase()
-    .normalize("NFC").replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-|-$/g, "");
-  const key = address?.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
-  const label = name || `Flor ${index + 1}`;
-
-  if (!name || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(key ?? "") || addresses.has(key)) {
-    throw new Error(`${label}: use um nome e um endereço único, com letras, números ou hífens.`);
-  }
-  addresses.add(key);
-
-  const imagePath = entry.image;
-  if (typeof imagePath !== "string" || !/^\/assets\/flores\/(?:[\p{L}\p{N}_ -]+\/)*[\p{L}\p{N}_ .-]+\.(jpg|jpeg|png|webp|avif)$/iu.test(imagePath)) {
-    throw new Error(`${label}: selecione uma foto da pasta de fotos do catálogo.`);
-  }
-  const image = imagePath.split("/").map(encodeURIComponent).join("/");
-  if (!statSync(path(image.slice(1)), { throwIfNoEntry: false })?.isFile()) {
-    throw new Error(`${label}: a foto selecionada não está no repositório.`);
-  }
-
-  const prices = [entry.single, entry.trio, entry.quintet];
-  if (prices.some((price) => !Number.isFinite(price) || price < 0)) {
-    throw new Error(`${label}: informe preços válidos para as três opções.`);
-  }
-
-  return {
-    key, address, name, image, prices,
-    alt: entry.alt?.trim() || `${name} de chenille`,
-    interest: entry.interest?.trim() || `em ${name}`,
-    illustrative: entry.illustrative === true,
-  };
-});
 
 const entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" };
 const escapeHtml = (value) => value.replace(/[&<>"]/g, (character) => entities[character]);
@@ -67,6 +35,6 @@ const output = template
 
 mkdirSync(path("dist"), { recursive: true });
 writeFileSync(path("dist/index.html"), output);
-for (const file of ["assets", "style.css", "catalogo.js", "flor.html"]) {
+for (const file of ["assets", "style.css", "catalogo.js", "flor.html", "admin.html", "admin.css", "admin.js"]) {
   cpSync(path(file), path(`dist/${file}`), { recursive: true });
 }

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel da loja | DLS Flores</title>
+  <link rel="icon" href="/assets/logo.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/admin.css">
+  <script src="/admin.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="admin-brand" href="/" aria-label="DLS Flores, início">
+        <img src="/assets/logo.jpg" alt="" width="42" height="42">
+        DLS Flores
+      </a>
+      <a class="nav-action" href="/#buques">Ver loja</a>
+    </div>
+  </header>
+  <main class="shell admin-main">
+    <h1>Painel da loja</h1>
+    <p id="admin-status" class="admin-status" role="status">Verificando acesso…</p>
+
+    <form id="admin-login" class="admin-panel admin-login" method="post" hidden>
+      <h2>Entrar</h2>
+      <label for="admin-password">Senha do painel</label>
+      <input id="admin-password" type="password" autocomplete="current-password" required maxlength="256">
+      <button class="action" type="submit">Entrar</button>
+    </form>
+
+    <div id="admin-catalog" hidden>
+      <div class="admin-toolbar">
+        <h2>Catálogo de flores</h2>
+        <button id="admin-logout" class="admin-secondary" type="button">Sair</button>
+      </div>
+      <div class="admin-layout">
+        <section class="admin-panel" aria-label="Flores do catálogo">
+          <button id="admin-new" class="admin-secondary admin-new" type="button">Adicionar flor</button>
+          <ul id="admin-list" class="admin-list"></ul>
+        </section>
+
+        <form id="admin-editor" class="admin-panel admin-editor" method="post">
+          <h3 id="admin-editor-title"></h3>
+          <div class="admin-photo">
+            <img id="admin-photo-preview" alt="Prévia da foto" width="120" height="120" hidden>
+            <div>
+              <label for="admin-photo">Foto da flor</label>
+              <input id="admin-photo" type="file" accept="image/*">
+              <label class="admin-check"><input name="illustrative" type="checkbox"> Foto ilustrativa</label>
+            </div>
+          </div>
+          <label>Nome da flor <input name="name" type="text" required maxlength="100"></label>
+          <label>Descrição da foto <input name="alt" type="text" maxlength="180"></label>
+          <fieldset class="admin-prices">
+            <legend>Preços em reais</legend>
+            <label>1 unidade <input name="single" type="number" min="0" step="0.01" required></label>
+            <label>Buquê com 3 <input name="trio" type="number" min="0" step="0.01" required></label>
+            <label>Buquê com 5 <input name="quintet" type="number" min="0" step="0.01" required></label>
+          </fieldset>
+          <button class="action" type="submit">Salvar no catálogo</button>
+          <p id="admin-save-status" class="admin-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+    <noscript>Ative o JavaScript para usar o painel.</noscript>
+  </main>
+</body>
+</html>
